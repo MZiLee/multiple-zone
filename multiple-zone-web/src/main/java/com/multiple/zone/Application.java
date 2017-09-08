@@ -10,6 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * 
+ * @author lichao
+ * @date  2017年9月8日11:17:55
+ */
 @Configuration
 @EnableTransactionManagement
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
