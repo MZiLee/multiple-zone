@@ -8,10 +8,13 @@
   <packaging>pom</packaging>
 
   <name>multiple-zone</name>
-  <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mybatis.version>3.2.6</mybatis.version>
+    <mybatis-spring.version>1.3.0</mybatis-spring.version>
+    <mybatise.pagehelper.version>3.6.0</mybatise.pagehelper.version>
+    <com.alibaba.druid.version>1.0.26</com.alibaba.druid.version>
   </properties>
   
   <parent>
@@ -21,6 +24,29 @@
     </parent>
 
   <dependencies>
+  	 <!--mybatise-->
+     <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis</artifactId>
+         <version>${mybatis.version}</version>
+     </dependency>
+     <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis-spring</artifactId>
+         <version>${mybatis-spring.version}</version>
+     </dependency>
+     <dependency>
+         <groupId>com.github.pagehelper</groupId>
+         <artifactId>pagehelper</artifactId>
+         <version>${mybatise.pagehelper.version}</version>
+     </dependency>
+
+     <!--datasoure-->
+     <dependency>
+         <groupId>com.alibaba</groupId>
+         <artifactId>druid</artifactId>
+         <version>${com.alibaba.druid.version}</version>
+     </dependency>
   </dependencies>
   <modules>
   	<module>multiple-zone-entity</module>

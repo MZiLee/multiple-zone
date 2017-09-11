@@ -1,4 +1,4 @@
-package org.multiple.zone.entity;
+package multiple.zone.entity;
 
 import java.util.Date;
 
@@ -102,5 +102,26 @@ public class User extends BaseEntity<User>{
 		this.userImg = userImg;
 	}
 	
+	@Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("User [");   
+                        builder.append("id=");
+                builder.append(id);
+                        builder.append(", name=");
+                builder.append(name);
+                        builder.append(", loginName=");
+                builder.append(loginName);
+                        builder.append(", password=");
+                builder.append(password);
+                        builder.append(", userImg=");
+                builder.append(userImg);
+                        builder.append(", createTime=");
+                builder.append(createTime);
+                        builder.append(", modifyTime=");
+                builder.append(modifyTime);
+                builder.append("]");
+        return builder.toString();
+    }
 	
 }

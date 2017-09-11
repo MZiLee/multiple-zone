@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="multiple.zone.dao.UserDao">
+	<resultMap id="baseResultMap" type="multiple.zone.entity.User">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="login_name" property="loginName" />
+		<result column="password" property="password" />
+		<result column="user_img" property="userImg" />
+		<result column="create_time" property="createTime" />
+		<result column="modify_time" property="modifyTime" />
+	</resultMap>
+
+	<sql id="baseColumnList">
+		id,name,login_name,password,user_img,create_time,modify_time
+	</sql>
+
+	<sql id="baseWhereClause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				and id=#{id}
+			</if>
+			<if test="name != null">
+				and name=#{name}
+			</if>
+			<if test="loginName != null">
+				and login_name=#{loginName}
+			</if>
+			<if test="password != null">
+				and password=#{password}
+			</if>
+			<if test="userImg != null">
+				and user_img=#{userImg}
+			</if>
+			<if test="createTime != null">
+				and create_time=#{createTime}
+			</if>
+			<if test="modifyTime != null">
+				and modify_time=#{modifyTime}
+			</if>
+		</trim>
+	</sql>
+
+	<sql id="selectiveSetClause">
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				id=#{id},
+			</if>
+			<if test="name != null">
+				name=#{name},
+			</if>
+			<if test="loginName != null">
+				login_name=#{loginName},
+			</if>
+			<if test="password != null">
+				password=#{password},
+			</if>
+			<if test="userImg != null">
+				user_img=#{userImg},
+			</if>
+			<if test="createTime != null">
+				create_time=#{createTime},
+			</if>
+			modify_time=now()
+		</trim>
+	</sql>
+
+	<insert id="add" parameterType="Object">
+		insert into
+		t_user(id,name,login_name,password,user_img,create_time,modify_time)
+		values(#{id},#{name},#{loginName},#{password},#{userImg},now(),now())
+	</insert>
+
+	<update id="update" parameterType="Object">
+		update t_user set
+		name=#{name},login_name=#{loginName},password=#{password},user_img=#{userImg},create_time=#{createTime},modify_time=now()
+		where id=#{id}
+	</update>
+
+	<update id="updateBySelective" parameterType="Object">
+		update t_user set
+		<include refid="selectiveSetClause" />
+		where id=#{id}
+	</update>
+
+	<delete id="delete" parameterType="Object">
+		delete from t_user where
+		id=#{id}
+	</delete>
+
+	<select id="queryById" resultMap="baseResultMap" parameterType="Object">
+		select
+		<include refid="baseColumnList" />
+		from t_user where id=#{id}
+	</select>
+
+	<select id="queryByCount" resultType="java.lang.Integer"
+		parameterType="Object">
+		select count(1) from t_user
+		<include refid="baseWhereClause" />
+	</select>
+
+	<select id="queryByList" resultMap="baseResultMap"
+		parameterType="Object">
+		select
+		<include refid="baseColumnList" />
+		from t_user
+		<include refid="baseWhereClause" />
+	</select>
+
+</mapper>
