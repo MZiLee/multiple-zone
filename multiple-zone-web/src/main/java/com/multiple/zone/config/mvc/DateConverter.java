@@ -11,9 +11,8 @@ import java.util.Date;
 
 /**
 * @Description
-* @Author zhangliewei
-* @Date 2016/7/5
-* @Copyright(c) gome inc Gome Co.,LTD
+* @Author lichao
+* @Date 2017年9月11日17:43:42
 */
 public class DateConverter implements Converter<String, Date> {
     private static final Logger L = LoggerFactory.getLogger(DateConverter.class);

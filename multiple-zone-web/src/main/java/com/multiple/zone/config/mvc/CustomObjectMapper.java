@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 
 /**
 * 自定义JSON转换器
-* @author zhangliewei
+* @author lichao
 */
 public class CustomObjectMapper extends ObjectMapper {
     public CustomObjectMapper() {

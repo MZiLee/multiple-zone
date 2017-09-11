@@ -5,7 +5,8 @@ import org.springframework.context.annotation.ImportResource;
 
 /**
  * 事物配置等同于<tx:annotation-driven/>
- * Created by zhangliewei on 2017/6/26.
+ * @author lichao 
+ * @Date 2017年9月11日17:42:52
  */
 //@Aspect
 @Configuration
