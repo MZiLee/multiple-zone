@@ -22,10 +22,37 @@ public class UserController extends BaseController{
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 *	分页查询用户
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping("/pager")
 	@ResponseBody
 	public ResultData<List<User>> pager(User user){
 		
 		return userService.queryByList(user);
+	}
+	
+	/**
+	 * 新增用户信息
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("/add")
+	@ResponseBody
+	public ResultData<User> add(User user){
+		return userService.add(user);
+	}
+	
+	/**
+	 * 更新用户信息
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("/update")
+	@ResponseBody
+	public ResultData<User> update(User user){
+		return userService.updateBySelective(user);
 	}
 }

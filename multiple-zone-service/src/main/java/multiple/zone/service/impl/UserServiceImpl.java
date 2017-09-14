@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import multiple.zone.commons.base.core.ErrorCode;
+import multiple.zone.commons.base.core.ResultData;
 import multiple.zone.commons.base.service.BaseServiceSupport;
 import multiple.zone.dao.UserDao;
 import multiple.zone.entity.User;
@@ -29,4 +31,15 @@ public class UserServiceImpl extends BaseServiceSupport<User> implements UserSer
 	public UserDao getDao() {
 		return userDao;
 	}
+    
+    @Override
+    public ResultData<User> add(User user){
+    	logger.info("传入参数：{}",user.toString());
+    	try {
+    		userDao.add(user);
+		} catch (Exception e) {
+			ResultData.newResultData(ErrorCode.FAILOR, "用户新增失败");
+		}
+    	return ResultData.newResultData(user);
+    }
 }
