@@ -24,7 +24,7 @@ public class User extends BaseEntity<User>{
 	/**
 	 * 登录名
 	 */
-	private String loginName;
+	private String username;
 	
 	/**
 	 * 登录密码
@@ -86,12 +86,12 @@ public class User extends BaseEntity<User>{
 		this.modifyTime = modifyTime;
 	}
 
-	public String getLoginName() {
-		return loginName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLoginName(String loginName) {
-		this.loginName = loginName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getUserImg() {
@@ -110,8 +110,8 @@ public class User extends BaseEntity<User>{
                 builder.append(id);
                         builder.append(", name=");
                 builder.append(name);
-                        builder.append(", loginName=");
-                builder.append(loginName);
+                        builder.append(", username=");
+                builder.append(username);
                         builder.append(", password=");
                 builder.append(password);
                         builder.append(", userImg=");

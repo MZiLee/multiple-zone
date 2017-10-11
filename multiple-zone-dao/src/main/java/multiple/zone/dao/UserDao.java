@@ -10,4 +10,12 @@ import multiple.zone.entity.User;
  */
 public interface UserDao extends BaseDao<User> {
 	
+	/**
+     * 通过用户名查询单个用户，用户名保持唯一
+     *
+     * @param username
+     * @return
+     */
+    User queryByUsername(String username);
+	
 }

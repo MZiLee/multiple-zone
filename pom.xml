@@ -4,10 +4,15 @@
 
   <groupId>multiple.zone</groupId>
   <artifactId>multiple-zone</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-
-  <name>multiple-zone</name>
+  <version>0.0.1-SNAPSHOT</version>
+  <modules>
+  	<module>multiple-zone-entity</module>
+  	<module>multiple-zone-dao</module>
+  	<module>multiple-zone-service</module>
+  	<module>multiple-zone-commons</module>
+  	<module>multiple-zone-web</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,6 +20,7 @@
     <mybatis-spring.version>1.3.0</mybatis-spring.version>
     <mybatise.pagehelper.version>3.6.0</mybatise.pagehelper.version>
     <com.alibaba.druid.version>1.0.26</com.alibaba.druid.version>
+    <shiro.version>1.2.5</shiro.version>
   </properties>
   
   <parent>
@@ -23,36 +29,49 @@
         <version>1.5.2.RELEASE</version>
     </parent>
 
-  <dependencies>
-  	 <!--mybatise-->
-     <dependency>
-         <groupId>org.mybatis</groupId>
-         <artifactId>mybatis</artifactId>
-         <version>${mybatis.version}</version>
-     </dependency>
-     <dependency>
-         <groupId>org.mybatis</groupId>
-         <artifactId>mybatis-spring</artifactId>
-         <version>${mybatis-spring.version}</version>
-     </dependency>
-     <dependency>
-         <groupId>com.github.pagehelper</groupId>
-         <artifactId>pagehelper</artifactId>
-         <version>${mybatise.pagehelper.version}</version>
-     </dependency>
-
-     <!--datasoure-->
-     <dependency>
-         <groupId>com.alibaba</groupId>
-         <artifactId>druid</artifactId>
-         <version>${com.alibaba.druid.version}</version>
-     </dependency>
-  </dependencies>
-  <modules>
-  	<module>multiple-zone-entity</module>
-  	<module>multiple-zone-dao</module>
-  	<module>multiple-zone-service</module>
-  	<module>multiple-zone-commons</module>
-  	<module>multiple-zone-web</module>
-  </modules>
+	<dependencyManagement>
+	  <dependencies>
+	  	 <!--mybatise-->
+	     <dependency>
+	         <groupId>org.mybatis</groupId>
+	         <artifactId>mybatis</artifactId>
+	         <version>${mybatis.version}</version>
+	     </dependency>
+	     <dependency>
+	         <groupId>org.mybatis</groupId>
+	         <artifactId>mybatis-spring</artifactId>
+	         <version>${mybatis-spring.version}</version>
+	     </dependency>
+	     <dependency>
+	         <groupId>com.github.pagehelper</groupId>
+	         <artifactId>pagehelper</artifactId>
+	         <version>${mybatise.pagehelper.version}</version>
+	     </dependency>
+	     
+	     <!--shiro-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+	
+	     <!--datasoure-->
+	     <dependency>
+	         <groupId>com.alibaba</groupId>
+	         <artifactId>druid</artifactId>
+	         <version>${com.alibaba.druid.version}</version>
+	     </dependency>
+	     
+	  </dependencies>
+  </dependencyManagement>
 </project>

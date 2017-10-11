@@ -42,4 +42,10 @@ public class UserServiceImpl extends BaseServiceSupport<User> implements UserSer
 		}
     	return ResultData.newResultData(user);
     }
+
+	@Override
+	public ResultData<User> queryByUsername(String username) {
+		User user = userDao.queryByUsername(username);
+		return ResultData.newResultData(user);
+	}
 }

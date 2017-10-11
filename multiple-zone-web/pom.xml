@@ -63,6 +63,20 @@
         <artifactId>mysql-connector-java</artifactId>
     </dependency>
     
+    <!--shiro-->
+    <dependency>
+         <groupId>org.apache.shiro</groupId>
+         <artifactId>shiro-core</artifactId>
+     </dependency>
+    
+     <dependency>
+         <groupId>org.apache.shiro</groupId>
+         <artifactId>shiro-web</artifactId>
+     </dependency>
+     <dependency>
+         <groupId>org.apache.shiro</groupId>
+         <artifactId>shiro-spring</artifactId>
+     </dependency>
 	<!--单元测试-->
      <dependency>
          <groupId>org.springframework.boot</groupId>
@@ -72,6 +86,19 @@
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
      </dependency>
+     
+     <!--datasource-->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+      </dependency>
+      
+      <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.5</version>
+            <scope>compile</scope>
+        </dependency>
      
      <dependency>
      	<groupId>multiple.zone</groupId>

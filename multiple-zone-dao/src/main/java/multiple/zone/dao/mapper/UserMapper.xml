@@ -4,7 +4,7 @@
 	<resultMap id="baseResultMap" type="multiple.zone.entity.User">
 		<result column="id" property="id" />
 		<result column="name" property="name" />
-		<result column="login_name" property="loginName" />
+		<result column="username" property="username" />
 		<result column="password" property="password" />
 		<result column="user_img" property="userImg" />
 		<result column="create_time" property="createTime" />
@@ -12,7 +12,7 @@
 	</resultMap>
 
 	<sql id="baseColumnList">
-		id,name,login_name,password,user_img,create_time,modify_time
+		id,name,username,password,user_img,create_time,modify_time
 	</sql>
 
 	<sql id="baseWhereClause">
@@ -24,8 +24,8 @@
 			<if test="name != null">
 				and name=#{name}
 			</if>
-			<if test="loginName != null">
-				and login_name=#{loginName}
+			<if test="username != null">
+				and username=#{username}
 			</if>
 			<if test="password != null">
 				and password=#{password}
@@ -50,8 +50,8 @@
 			<if test="name != null">
 				name=#{name},
 			</if>
-			<if test="loginName != null">
-				login_name=#{loginName},
+			<if test="username != null">
+				username=#{username},
 			</if>
 			<if test="password != null">
 				password=#{password},
@@ -68,13 +68,13 @@
 
 	<insert id="add" parameterType="Object">
 		insert into
-		t_user(id,name,login_name,password,user_img,create_time,modify_time)
-		values(#{id},#{name},#{loginName},#{password},#{userImg},now(),now())
+		t_user(id,name,username,password,user_img,create_time,modify_time)
+		values(#{id},#{name},#{username},#{password},#{userImg},now(),now())
 	</insert>
 
 	<update id="update" parameterType="Object">
 		update t_user set
-		name=#{name},login_name=#{loginName},password=#{password},user_img=#{userImg},create_time=#{createTime},modify_time=now()
+		name=#{name},username=#{username},password=#{password},user_img=#{userImg},create_time=#{createTime},modify_time=now()
 		where id=#{id}
 	</update>
 
@@ -99,6 +99,12 @@
 		parameterType="Object">
 		select count(1) from t_user
 		<include refid="baseWhereClause" />
+	</select>
+	
+	<select id="queryByUsername" resultMap="baseResultMap" parameterType="Object">
+		select
+		<include refid="baseColumnList" />
+		from t_user where username = #{username}
 	</select>
 
 	<select id="queryByList" resultMap="baseResultMap"
