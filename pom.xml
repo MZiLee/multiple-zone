@@ -21,6 +21,7 @@
     <mybatise.pagehelper.version>3.6.0</mybatise.pagehelper.version>
     <com.alibaba.druid.version>1.0.26</com.alibaba.druid.version>
     <shiro.version>1.2.5</shiro.version>
+    <jackson.version>2.8.8</jackson.version>
   </properties>
   
   <parent>
@@ -71,6 +72,27 @@
 	         <artifactId>druid</artifactId>
 	         <version>${com.alibaba.druid.version}</version>
 	     </dependency>
+	     
+	     <dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+	     	<version>${jackson.version}</version>
+		 </dependency>
+		 <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 	     
 	  </dependencies>
   </dependencyManagement>
