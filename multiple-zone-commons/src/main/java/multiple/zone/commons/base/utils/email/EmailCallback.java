@@ -1,12 +1,9 @@
 package multiple.zone.commons.base.utils.email;
 
 /**
- * Created with IntelliJ IDEA.
- * User: wanglinyong
- * Date: 2016/12/2
- * Time: 15:08
+ * User: lichao
+ * Date: 2018年2月9日15:30:49
  *
- * @Copyright(c) gome inc Gome Co.,LTD
  */
 public interface EmailCallback {
 
